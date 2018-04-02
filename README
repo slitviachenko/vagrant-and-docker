@@ -1,0 +1,53 @@
+// https://stackoverflow.com/questions/37966552/what-is-the-difference-between-docker-and-docker-compose - What is the difference between docker and docker-compose
+// https://stackoverflow.com/questions/40801772/what-is-the-difference-between-docker-compose-ports-vs-expose - What is the difference between docker-compose ports vs expose
+
+// https://github.com/maxpou/docker-symfony
+
+########################################################################################################################
+### Vagrant
+Required: Vagrant + VirtualBox
+vagrant box update
+vagrant up
+vagrant ssh
+vagrant halt        # - to stop your VM but save all files
+vagrant destroy     # - to fully delete your virtual machine!
+
+########################################################################################################################
+### Docker
+$ docker --help
+
+// Thread: Logining into www-data => https://ubuntuforums.org/showthread.php?t=2280551
+# su -s /bin/bash www-data
+
+########################################################################################################################
+### MySQL
+// https://docs.docker.com/samples/library/mysql/
+// https://hub.docker.com/_/mysql/
+$ docker run -it --rm mysql:5.7 --verbose --help
+$ docker exec -it mysql-container bash
+$ docker logs mysql-container
+
+/docker-entrypoint-initdb.d - files with extensions .sh, .sql and .sql.gz will be executed when a container is started for the first time.
+Files will be executed in alphabetical order. SQL files will be imported by default to the database specified by the MYSQL_DATABASE variable.
+
+$ docker exec mysql-container sh -c 'exec mysqldump -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE"' > ~/db_dump.sql
+
+########################################################################################################################
+$ docker-compose -f docker-compose.yml stop
+$ docker-compose -f docker-compose.yml rm -vf
+$ docker-compose -f docker-compose.yml build
+$ docker-compose -f docker-compose.yml up -d
+$ docker-compose -f docker-compose.yml ps
+$ docker container ls -a
+$ docker container rm nginx-container php-container
+$ docker exec -it nginx-container bash
+$ docker logs nginx-container
+
+########################################################################################################################
+$ docker volume ls
+$ docker volume inspect <volume_name>
+$ docker volume create --name=<volume_name>
+$ docker volume rm <volume_name>
+
+// https://coderwall.com/p/hdsfpq/docker-remove-all-dangling-volumes
+docker volume rm `docker volume ls -q -f dangling=true`
