@@ -5,7 +5,7 @@
 
 # https://app.vagrantup.com/bento/boxes/ubuntu-16.04
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.network "private_network", ip: "192.168.5.10"
   config.vm.network "forwarded_port", guest: 22, host: 2052, host_ip: "127.0.0.1", id: "ssh"
   config.vm.synced_folder "docker", "/external/docker", create: true, group: 'vagrant', owner: 'vagrant', mount_options: ["dmode=755,fmode=644"]
