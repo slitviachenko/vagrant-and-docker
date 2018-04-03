@@ -51,3 +51,7 @@ $ docker volume rm <volume_name>
 
 // https://coderwall.com/p/hdsfpq/docker-remove-all-dangling-volumes
 docker volume rm `docker volume ls -q -f dangling=true`
+
+########################################################################################################################
+// https://stackoverflow.com/questions/37806188/how-to-restart-php-fpm-inside-a-docker-container
+# kill -USR2 1

@@ -19,6 +19,7 @@ RUN apt-get update && \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) xsl \
-    && docker-php-ext-install -j$(nproc) pdo_mysql
+    && docker-php-ext-install -j$(nproc) pdo_mysql \
+    && docker-php-ext-install -j$(nproc) soap
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
