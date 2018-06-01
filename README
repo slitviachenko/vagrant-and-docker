@@ -3,7 +3,7 @@
 
 // https://github.com/maxpou/docker-symfony
 
-########################################################################################################################
+###########################################################################################################
 ### Vagrant
 Required: Vagrant + VirtualBox
 vagrant box update
@@ -12,14 +12,14 @@ vagrant ssh
 vagrant halt        # - to stop your VM but save all files
 vagrant destroy     # - to fully delete your virtual machine!
 
-########################################################################################################################
+###########################################################################################################
 ### Docker
 $ docker --help
 
 // Thread: Logining into www-data => https://ubuntuforums.org/showthread.php?t=2280551
 # su -s /bin/bash www-data
 
-########################################################################################################################
+###########################################################################################################
 ### MySQL
 // https://docs.docker.com/samples/library/mysql/
 // https://hub.docker.com/_/mysql/
@@ -32,7 +32,7 @@ Files will be executed in alphabetical order. SQL files will be imported by defa
 
 $ docker exec mysql-container sh -c 'exec mysqldump -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE"' > ~/db_dump.sql
 
-########################################################################################################################
+###########################################################################################################
 $ docker-compose -f docker-compose.yml stop
 $ docker-compose -f docker-compose.yml rm -vf
 $ docker-compose -f docker-compose.yml build
@@ -43,7 +43,7 @@ $ docker container rm nginx-container php-container
 $ docker exec -it nginx-container bash
 $ docker logs nginx-container
 
-########################################################################################################################
+###########################################################################################################
 $ docker volume ls
 $ docker volume inspect <volume_name>
 $ docker volume create --name=<volume_name>
@@ -52,6 +52,6 @@ $ docker volume rm <volume_name>
 // https://coderwall.com/p/hdsfpq/docker-remove-all-dangling-volumes
 docker volume rm `docker volume ls -q -f dangling=true`
 
-########################################################################################################################
+###########################################################################################################
 // https://stackoverflow.com/questions/37806188/how-to-restart-php-fpm-inside-a-docker-container
 # kill -USR2 1
