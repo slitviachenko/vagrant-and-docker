@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.network "private_network", ip: "192.168.5.10"
   config.vm.network "forwarded_port", guest: 22, host: 2052, host_ip: "127.0.0.1", id: "ssh"
+  config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.synced_folder "docker", "/external/docker", create: true, group: 'vagrant', owner: 'vagrant', mount_options: ["dmode=755,fmode=644"]
   config.vm.synced_folder "project", "/external/project", create: true, group: 'www-data', owner: 'www-data', mount_options: ["dmode=755,fmode=644"]
 
