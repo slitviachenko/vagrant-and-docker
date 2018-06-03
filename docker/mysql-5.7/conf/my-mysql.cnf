@@ -5,4 +5,21 @@
 collation-server     = utf8mb4_unicode_ci # Replaces utf8_unicode_ci
 character-set-server = utf8mb4            # Replaces utf8
 
+# SET GLOBAL general_log_file = '/var/run/mysqld/mysqld.log';
+# SET GLOBAL log_output = 'FILE';
+# SET GLOBAL general_log = 'ON';
+# SET GLOBAL general_log = 'OFF';
+general_log_file = /var/run/mysqld/mysqld.log
+# TRUNCATE TABLE mysql.general_log; SELECT * FROM mysql.general_log;
+log_output = TABLE
+general_log = OFF
+
+
+# https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html
+# https://www.percona.com/doc/percona-toolkit/LATEST/pt-query-digest.html - Analyze MySQL queries from logs, processlist, and tcpdump.
+slow_query_log = ON
+slow_query_log_file = /var/run/mysqld/slow.log
+long_query_time = 5
+log_queries_not_using_indexes = ON
+
 [mysql]
