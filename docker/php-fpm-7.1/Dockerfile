@@ -13,6 +13,7 @@ RUN apt-get update && \
         libmcrypt-dev \
         libicu-dev \
         libxslt-dev \
+        cron \
     && docker-php-ext-install -j$(nproc) mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
@@ -24,3 +25,6 @@ RUN apt-get update && \
     && docker-php-ext-install -j$(nproc) bcmath
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+COPY conf/php.ini /usr/local/etc/php/php.ini
+COPY conf/php-cli.ini /usr/local/etc/php/php-cli.ini
