@@ -52,5 +52,9 @@ Vagrant.configure("2") do |config|
     sudo groupadd docker
     sudo usermod -aG docker vagrant
     # Verify that you can run docker commands without sudo : $ docker run hello-world
+
+    # https://docs.docker.com/machine/install-machine/ - Install Docker Machine
+    base=https://github.com/docker/machine/releases/download/v0.14.0 && curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+    # Check the installation by displaying the Machine version: $ docker-machine version
   SHELL
 end
