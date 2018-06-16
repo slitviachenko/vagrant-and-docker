@@ -21,6 +21,8 @@ RUN apt-get update && \
     && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) xsl \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
+    # mysqli is needed for phpMyAdmin
+    && docker-php-ext-install -j$(nproc) mysqli \
     && docker-php-ext-install -j$(nproc) soap \
     && docker-php-ext-install -j$(nproc) bcmath
 
