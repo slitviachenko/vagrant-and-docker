@@ -31,9 +31,6 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 COPY conf/php.ini /usr/local/etc/php/php.ini
 COPY conf/php-cli.ini /usr/local/etc/php/php-cli.ini
 
-# For running the cron daemon:
-# $ docker exec -it php-fpm-container bash -c "service cron start"
-
 # Enable and configure xdebug
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
@@ -44,3 +41,19 @@ RUN sed -i '1 a xdebug.remote_connect_back=1' /usr/local/etc/php/conf.d/docker-p
 RUN sed -i '1 a xdebug.remote_autostart=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.remote_mode=req' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.remote_port=9000' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+
+
+
+### POST-BUILD commands
+# https://www.phpmyadmin.net/downloads/
+### RUN curl https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-english.tar.xz --output /tmp/phpMyAdmin-4.8.1-english.tar.xz && \
+###     tar -xf /tmp/phpMyAdmin-4.8.1-english.tar.xz --directory /var/www/html && \
+###     ln -s /var/www/html/phpMyAdmin-4.8.1-english /var/www/html/phpmyadmin
+### COPY conf/phpmyadmin/config.inc.php /var/www/html/phpMyAdmin-4.8.1-english/config.inc.php
+
+
+
+### POST-RUN commands
+# For running the cron daemon:
+# $ docker exec -it php-fpm-container bash -c "service cron start"
