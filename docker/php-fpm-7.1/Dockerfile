@@ -14,6 +14,8 @@ RUN apt-get update && \
         libicu-dev \
         libxslt-dev \
         cron \
+        curl \
+        vim \
     && docker-php-ext-install -j$(nproc) mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
@@ -24,7 +26,8 @@ RUN apt-get update && \
     # mysqli is needed for phpMyAdmin
     && docker-php-ext-install -j$(nproc) mysqli \
     && docker-php-ext-install -j$(nproc) soap \
-    && docker-php-ext-install -j$(nproc) bcmath
+    && docker-php-ext-install -j$(nproc) bcmath \
+    && docker-php-ext-install -j$(nproc) opcache
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
@@ -41,6 +44,7 @@ RUN sed -i '1 a xdebug.remote_connect_back=1' /usr/local/etc/php/conf.d/docker-p
 RUN sed -i '1 a xdebug.remote_autostart=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.remote_mode=req' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.remote_port=9000' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.max_nesting_level=1000' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 
 

@@ -55,3 +55,10 @@ docker volume rm `docker volume ls -q -f dangling=true`
 ###########################################################################################################
 // https://stackoverflow.com/questions/37806188/how-to-restart-php-fpm-inside-a-docker-container
 # kill -USR2 1
+
+
+
+### Magento 2 Install
+$ sudo find . -not \( -path ./.idea/\* -prune \) -not \( -path ./.git/\* -prune \) -exec chown www-data:www-data {} \;
+// https://alankent.me/2015/10/07/xml-schema-resolution-in-php-storm-with-urns-quick-note/
+$ php bin/magento dev:urn-catalog:generate .idea/misc.xml

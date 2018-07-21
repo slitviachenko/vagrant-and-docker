@@ -22,4 +22,8 @@ slow_query_log_file = /var/run/mysqld/slow.log
 long_query_time = 5
 log_queries_not_using_indexes = ON
 
+# https://devdocs.magento.com/guides/v2.2/cloud/before/before-workspace-magento-prereqs.html#cloud-mysql
+# $ mysqladmin variables -u <root username> -p | grep 'auto_increment'
+auto_increment_increment = 3
+
 [mysql]
