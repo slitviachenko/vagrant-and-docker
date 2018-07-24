@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
       mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
     else
       cpus = 2
-      mem = 1024
+      mem = 2048
     end
     vb.customize ["modifyvm", :id, "--memory", mem]
     vb.customize ["modifyvm", :id, "--cpus", cpus]
