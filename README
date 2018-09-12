@@ -15,6 +15,9 @@ vagrant destroy     # - to fully delete your virtual machine!
 ###########################################################################################################
 ### Docker
 $ docker --help
+$ docker images
+$ docker run hello-world
+$ docker rmi hello-world
 
 // Thread: Logining into www-data => https://ubuntuforums.org/showthread.php?t=2280551
 # su -s /bin/bash www-data

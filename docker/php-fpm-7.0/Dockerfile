@@ -51,10 +51,10 @@ RUN sed -i '1 a xdebug.max_nesting_level=1000' /usr/local/etc/php/conf.d/docker-
 
 ### POST-BUILD commands
 # https://www.phpmyadmin.net/downloads/
-### RUN curl https://files.phpmyadmin.net/phpMyAdmin/4.8.1/phpMyAdmin-4.8.1-english.tar.xz --output /tmp/phpMyAdmin-4.8.1-english.tar.xz && \
-###     tar -xf /tmp/phpMyAdmin-4.8.1-english.tar.xz --directory /var/www/html && \
-###     ln -s /var/www/html/phpMyAdmin-4.8.1-english /var/www/html/phpmyadmin
-### COPY conf/phpmyadmin/config.inc.php /var/www/html/phpMyAdmin-4.8.1-english/config.inc.php
+### RUN curl https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-english.tar.xz --output /tmp/phpMyAdmin-4.8.3-english.tar.xz && \
+###     tar -xf /tmp/phpMyAdmin-4.8.3-english.tar.xz --directory /var/www/html && \
+###     ln -s /var/www/html/phpMyAdmin-4.8.3-english /var/www/html/phpmyadmin
+### COPY conf/phpmyadmin/config.inc.php /var/www/html/phpMyAdmin-4.8.3-english/config.inc.php
 
 
 

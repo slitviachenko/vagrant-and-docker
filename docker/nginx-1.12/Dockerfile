@@ -20,9 +20,9 @@ RUN mkdir /etc/nginx/conf.d/
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/upstream.conf /etc/nginx/conf.d/upstream.conf
 COPY conf/sites-available/default.conf /etc/nginx/sites-available/default.conf
-COPY conf/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-available/magento-2-2-ce.local.net.conf
 COPY conf/sites-available/symfony3.local.net.conf /etc/nginx/sites-available/symfony3.local.net.conf
+COPY conf/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-available/magento-2-2-ce.local.net.conf
 
 RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
-RUN ln -s /etc/nginx/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-enabled/magento-2-2-ce.local.net
 RUN ln -s /etc/nginx/sites-available/symfony3.local.net.conf /etc/nginx/sites-enabled/symfony3.local.net
+RUN ln -s /etc/nginx/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-enabled/magento-2-2-ce.local.net
