@@ -9,6 +9,7 @@ RUN mkdir /etc/nginx/ssl
 # https://www.shellhacks.com/create-csr-openssl-without-prompt-non-interactive/
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/symfony3.local.net.key -out /etc/nginx/ssl/symfony3.local.net.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=symfony3.local.net/emailAddress=sergey.litvyachenko@gmail.com"
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/magento-2-2-ce.local.net.key -out /etc/nginx/ssl/magento-2-2-ce.local.net.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=magento-2-2-ce.local.net/emailAddress=sergey.litvyachenko@gmail.com"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/marketplace.magento.local.key -out /etc/nginx/ssl/marketplace.magento.local.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=marketplace.magento.local/emailAddress=sergey.litvyachenko@gmail.com"
 
 RUN rm -rdf /etc/nginx/sites-available/
 RUN rm -rdf /etc/nginx/sites-enabled/
@@ -22,7 +23,9 @@ COPY conf/upstream.conf /etc/nginx/conf.d/upstream.conf
 COPY conf/sites-available/default.conf /etc/nginx/sites-available/default.conf
 COPY conf/sites-available/symfony3.local.net.conf /etc/nginx/sites-available/symfony3.local.net.conf
 COPY conf/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-available/magento-2-2-ce.local.net.conf
+COPY conf/sites-available/marketplace.magento.local.conf /etc/nginx/sites-available/marketplace.magento.local.conf
 
 RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 RUN ln -s /etc/nginx/sites-available/symfony3.local.net.conf /etc/nginx/sites-enabled/symfony3.local.net
 RUN ln -s /etc/nginx/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-enabled/magento-2-2-ce.local.net
+RUN ln -s /etc/nginx/sites-available/marketplace.magento.local.conf /etc/nginx/sites-enabled/marketplace.magento.local
