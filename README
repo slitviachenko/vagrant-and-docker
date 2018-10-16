@@ -20,7 +20,7 @@ $ docker run hello-world
 $ docker rmi hello-world
 
 // Thread: Logining into www-data => https://ubuntuforums.org/showthread.php?t=2280551
-# su -s /bin/bash www-data
+# su -s /bin/bash www-data|mysql
 
 ###########################################################################################################
 ### MySQL
@@ -29,6 +29,8 @@ $ docker rmi hello-world
 $ docker run -it --rm mysql:5.7 --verbose --help
 $ docker exec -it mysql-container bash
 $ docker logs mysql-container
+
+$ docker-compose config
 
 /docker-entrypoint-initdb.d - files with extensions .sh, .sql and .sql.gz will be executed when a container is started for the first time.
 Files will be executed in alphabetical order. SQL files will be imported by default to the database specified by the MYSQL_DATABASE variable.
@@ -44,6 +46,8 @@ $ docker-compose -f docker-compose.yml ps
 $ docker container ls -a
 $ docker container rm nginx-container php-container
 $ docker exec -it nginx-container bash
+// on Windows 10
+$ winpty docker exec -it mysql-container bash
 $ docker logs nginx-container
 
 ###########################################################################################################
