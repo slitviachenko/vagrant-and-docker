@@ -32,6 +32,7 @@ services:
     depends_on:
       - mysql
       - redis
+      - rabbitmq
     volumes:
       - ../project:/var/www
 
@@ -60,3 +61,14 @@ services:
     restart: always
     ports:
       - 6379:6379
+
+  # https://hub.docker.com/_/rabbitmq/
+  rabbitmq:
+    build:
+      context: ./rabbitmq-3.7-management
+      dockerfile: Dockerfile
+    container_name: rabbitmq-container
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
