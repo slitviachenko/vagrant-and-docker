@@ -45,10 +45,27 @@ $ docker-compose -f docker-compose.yml up -d
 $ docker-compose -f docker-compose.yml ps
 $ docker container ls -a
 $ docker container rm nginx-container php-container
-$ docker exec -it nginx-container bash
+$ docker exec -it php-fpm-container bash
 // on Windows 10
 $ winpty docker exec -it mysql-container bash
 $ docker logs nginx-container
+
+###########################################################################################################
+*** Vault
+$ docker exec -it vault-container sh
+# su -s /bin/sh vault
+$ ls /vault/
+
+// https://learn.hashicorp.com/vault/getting-started/authentication
+Token authentication is enabled by default in Vault and cannot be disabled.
+When you start a dev server with vault server -dev, it prints your root token.
+The root token is the initial access token to configure Vault. It has root privileges,
+so it can perform any operation within Vault.
+
+$ docker logs vault-container
+Root Token:
+
+http://127.0.0.1:8200/ - Vault UI
 
 ###########################################################################################################
 $ docker volume ls

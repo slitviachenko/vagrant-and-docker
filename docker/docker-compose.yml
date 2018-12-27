@@ -33,6 +33,7 @@ services:
       - mysql
       - redis
       - rabbitmq
+      - vault
     volumes:
       - ../project:/var/www
 
@@ -72,3 +73,13 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+
+  # https://hub.docker.com/_/vault/
+  vault:
+    build:
+      context: ./vault-1.0
+      dockerfile: Dockerfile
+    container_name: vault-container
+    restart: always
+    ports:
+      - 8200:8200
