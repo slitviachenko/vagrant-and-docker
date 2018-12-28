@@ -13,6 +13,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/m
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/api.marketplace.local.key -out /etc/nginx/ssl/api.marketplace.local.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=api.marketplace.local/emailAddress=sergey.litvyachenko@gmail.com"
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/devportal.marketplace.local.key -out /etc/nginx/ssl/devportal.marketplace.local.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=devportal.marketplace.local/emailAddress=sergey.litvyachenko@gmail.com"
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/settlement.marketplace.local.key -out /etc/nginx/ssl/settlement.marketplace.local.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=settlement.marketplace.local/emailAddress=sergey.litvyachenko@gmail.com"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/pr.marketplace.local.key -out /etc/nginx/ssl/pr.marketplace.local.crt -subj "/C=UA/ST=Kyiv/L=Kyiv/O=Magento/OU=IT Department/CN=pr.marketplace.local/emailAddress=sergey.litvyachenko@gmail.com"
 
 RUN rm -rdf /etc/nginx/sites-available/
 RUN rm -rdf /etc/nginx/sites-enabled/
@@ -30,6 +31,7 @@ COPY conf/sites-available/marketplace.magento.local.conf /etc/nginx/sites-availa
 COPY conf/sites-available/api.marketplace.local.conf /etc/nginx/sites-available/api.marketplace.local.conf
 COPY conf/sites-available/devportal.marketplace.local.conf /etc/nginx/sites-available/devportal.marketplace.local.conf
 COPY conf/sites-available/settlement.marketplace.local.conf /etc/nginx/sites-available/settlement.marketplace.local.conf
+COPY conf/sites-available/pr.marketplace.local.conf /etc/nginx/sites-available/pr.marketplace.local.conf
 
 RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 RUN ln -s /etc/nginx/sites-available/symfony3.local.net.conf /etc/nginx/sites-enabled/symfony3.local.net
@@ -38,3 +40,4 @@ RUN ln -s /etc/nginx/sites-available/marketplace.magento.local.conf /etc/nginx/s
 RUN ln -s /etc/nginx/sites-available/api.marketplace.local.conf /etc/nginx/sites-enabled/api.marketplace.local
 RUN ln -s /etc/nginx/sites-available/devportal.marketplace.local.conf /etc/nginx/sites-enabled/devportal.marketplace.local
 RUN ln -s /etc/nginx/sites-available/settlement.marketplace.local.conf /etc/nginx/sites-enabled/settlement.marketplace.local
+RUN ln -s /etc/nginx/sites-available/pr.marketplace.local.conf /etc/nginx/sites-enabled/pr.marketplace.local

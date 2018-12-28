@@ -67,6 +67,8 @@ Root Token:
 
 http://127.0.0.1:8200/ - Vault UI
 
+http://127.0.0.1:8200/ui/vault/secrets => "Enable new engine" => "Transit" => Path: "parameters.yml : vault_transit_path"
+
 ###########################################################################################################
 $ docker volume ls
 $ docker volume inspect <volume_name>
@@ -86,3 +88,8 @@ docker volume rm `docker volume ls -q -f dangling=true`
 $ sudo find . -not \( -path ./.idea/\* -prune \) -not \( -path ./.git/\* -prune \) -exec chown www-data:www-data {} \;
 // https://alankent.me/2015/10/07/xml-schema-resolution-in-php-storm-with-urns-quick-note/
 $ php bin/magento dev:urn-catalog:generate .idea/misc.xml
+
+
+###########################################################################################################
+https://help.github.com/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+

@@ -26,4 +26,6 @@ log_queries_not_using_indexes = ON
 # $ mysqladmin variables -u <root username> -p | grep 'auto_increment'
 auto_increment_increment = 3
 
+max_allowed_packet=64M
+
 [mysql]
