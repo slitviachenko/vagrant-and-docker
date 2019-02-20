@@ -1,0 +1,4 @@
+{
+  "log_level": "DEBUG",
+  "disable_mlock": true
+}

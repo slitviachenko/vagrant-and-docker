@@ -55,10 +55,12 @@ $ docker logs nginx-container
 $ docker exec -it vault-container sh
 # su -s /bin/sh vault
 $ ls /vault/
+$ export VAULT_ADDR='http://127.0.0.1:8200'
+$ vault status
 
 // https://learn.hashicorp.com/vault/getting-started/authentication
 Token authentication is enabled by default in Vault and cannot be disabled.
-When you start a dev server with vault server -dev, it prints your root token.
+When you start a dev server with `vault server -dev`, it prints your root token.
 The root token is the initial access token to configure Vault. It has root privileges,
 so it can perform any operation within Vault.
 

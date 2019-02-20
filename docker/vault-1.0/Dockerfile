@@ -1,3 +1,3 @@
 FROM vault:latest
 
-COPY conf/vault-docker.conf /vault/config/vault-docker.conf
+COPY conf/vault-docker.json /vault/config/vault-docker.json
