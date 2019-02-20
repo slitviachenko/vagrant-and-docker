@@ -81,3 +81,6 @@ services:
     restart: always
     ports:
       - 8200:8200
+    environment:
+      SKIP_SETCAP: "skip"
+      VAULT_DEV_ROOT_TOKEN_ID: "vault-docker-root-token"
