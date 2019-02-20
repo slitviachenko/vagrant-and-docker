@@ -27,6 +27,8 @@ RUN apt-get update && \
         unzip \
         build-essential \
         git \
+        time \
+        jq \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) zip \
@@ -64,6 +66,15 @@ RUN sed -i '1 a xdebug.remote_log=""' /usr/local/etc/php/conf.d/docker-php-ext-x
 
 
 ### POST-BUILD commands
+# https://github.com/erikdubbelboer/phpRedisAdmin
+### $ composer create-project --stability stable erik-dubbelboer/php-redis-admin /var/www/html/phpredisadmin
+### COPY conf/phpredisadmin/config.inc.php /var/www/html/phpredisadmin/includes/config.inc.php
+
+# https://packagist.org/packages/phpmyadmin/phpmyadmin
+# https://github.com/phpmyadmin/phpmyadmin
+### $ composer create-project --stability stable phpmyadmin/phpmyadmin /var/www/html/phpmyadmin
+### COPY conf/phpmyadmin/config.inc.php /var/www/html/phpmyadmin/config.inc.php
+
 # https://www.phpmyadmin.net/downloads/
 ### RUN curl https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-english.tar.xz --output /tmp/phpMyAdmin-4.8.3-english.tar.xz && \
 ###     tar -xf /tmp/phpMyAdmin-4.8.3-english.tar.xz --directory /var/www/html && \

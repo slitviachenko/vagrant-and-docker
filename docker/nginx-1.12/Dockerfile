@@ -33,7 +33,7 @@ COPY conf/sites-available/devportal.marketplace.local.conf /etc/nginx/sites-avai
 COPY conf/sites-available/settlement.marketplace.local.conf /etc/nginx/sites-available/settlement.marketplace.local.conf
 COPY conf/sites-available/pr.marketplace.local.conf /etc/nginx/sites-available/pr.marketplace.local.conf
 
-RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/01-default.conf
 RUN ln -s /etc/nginx/sites-available/symfony3.local.net.conf /etc/nginx/sites-enabled/symfony3.local.net
 RUN ln -s /etc/nginx/sites-available/magento-2-2-ce.local.net.conf /etc/nginx/sites-enabled/magento-2-2-ce.local.net
 RUN ln -s /etc/nginx/sites-available/marketplace.magento.local.conf /etc/nginx/sites-enabled/marketplace.magento.local

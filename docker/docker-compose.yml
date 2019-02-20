@@ -21,14 +21,12 @@ services:
   # https://hub.docker.com/_/php/
   php-fpm:
     build:
-      context: ./php-fpm-7.0
+      context: ./php-fpm-7.2
       dockerfile: Dockerfile
     container_name: php-fpm-container
     restart: always
     expose:
       - 9000
-    links:
-      - redis
     depends_on:
       - mysql
       - redis
